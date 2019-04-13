@@ -1,0 +1,62 @@
+[{
+'Type': ‘ER Record'
+'Patient': ‘Hassan Malik’,
+'Date': '3/3/15’,
+'Diagnosis': ‘lorem’,
+'Summary': ‘lorem ipsum’
+},
+{
+'Type': ‘ER Record'
+'Patient': ’Tyler Soohoo’,
+'Date': ‘6/9/15’,
+'Diagnosis': ‘lorem’,
+'Summary': ‘lorem ipsum’
+},
+{
+'Type': ‘ER Record'
+'Patient': ‘Charlie Tung’,
+'Date': ‘8/19/04’,
+'Diagnosis': ‘lorem’,
+'Summary': ‘lorem ipsum’
+},
+{
+'Type': 'Discharge Summary’,
+'Patient': ‘Hassan Malik’,
+'Admittance Date': ‘2/2/15’,
+'Discharge Date': ‘2/4/15’,
+'Summary': ‘Lorem Ipsum’
+},
+{
+'Type': 'Discharge Summary’,
+'Patient': ’Tyler Soo Hoo’,
+'Admittance Date': ‘1/1/14’,
+'Discharge Date': ‘1/2/14’,
+'Summary': ‘Lorem Ipsum’
+},
+{
+'Type': 'Discharge Summary’,
+'Patient': ‘Charlie Tung’,
+'Admittance Date': ‘7/4/17’,
+'Discharge Date': ‘7/5/17’,
+'Summary': ‘Lorem Ipsum’
+},
+
+{
+‘Type': 'X-Ray Report’,
+'Patient': ‘Hassan Malik’
+‘Date': ’10/20/16’,
+‘Summary': ‘Lorem ipsum’
+},
+{
+‘Type': 'X-Ray Report’,
+‘Patient': ’Tyler Soo Hoo’
+‘Date': ’8/20/17’,
+‘Summary': ‘Lorem ipsum’
+},
+{
+‘Type': 'X-Ray Report’,
+'Patient': ‘Charlie Tung’,
+‘Date': '1/20/19’,
+‘Summary': ‘Lorem Ipsum’
+}
+]
