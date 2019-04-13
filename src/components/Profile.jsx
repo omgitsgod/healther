@@ -3,8 +3,10 @@ import {
   isSignInPending,
   loadUserData,
   Person,
+  getFile,
+  putFile
 } from 'blockstack';
-
+import PersonRecords from '../schemas/PersonRecords'
 const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder.png';
 
 export default class Profile extends Component {
@@ -12,6 +14,7 @@ export default class Profile extends Component {
   	super(props);
 
   	this.state = {
+
   	  person: {
   	  	name() {
           return 'Anonymous';
@@ -45,10 +48,20 @@ export default class Profile extends Component {
       </div> : null
     );
   }
+  fetchData() {
 
+   const user = new Person(loadUserData().profile)
+   let records
+   if(!records){
+     records = new PersonRecords({
+       Name: user._profile.name,
+       records:[]
+     })
+   }
+   console.log(records)
+   }
   componentWillMount() {
-    this.setState({
-      person: new Person(loadUserData().profile),
-    });
+
+    this.fetchData()
   }
 }
