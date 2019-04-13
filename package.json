@@ -36,6 +36,7 @@
   "dependencies": {
     "blockstack": "^18.0.4",
     "bootstrap": "^3.3.7",
+    "radiks": "^0.2.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   }
