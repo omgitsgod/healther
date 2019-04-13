@@ -28,8 +28,7 @@ export default class Profile extends Component {
   render() {
     const { handleSignOut, signedIn } = this.props;
     const { person } = this.state;
-    // console.log(loadUserData())
-    // console.log(this.props)
+
 
     const user = loadUserData().username
     return (
