@@ -4,6 +4,7 @@ import {
   loadUserData,
   Person,
 } from 'blockstack';
+import Container from '../containers/Container.jsx'
 
 const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder.png';
 
@@ -23,16 +24,23 @@ export default class Profile extends Component {
   	};
   }
 
+
   render() {
-    const { handleSignOut } = this.props;
+    const { handleSignOut, signedIn } = this.props;
     const { person } = this.state;
+    // console.log(loadUserData())
+    // console.log(this.props)
+
+    const user = loadUserData().username
     return (
       !isSignInPending() ?
       <div className="panel-welcome" id="section-2">
         <div className="avatar-section">
           <img src={ person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage } className="img-rounded avatar" id="avatar-image" />
         </div>
-        <h1>Hello, <span id="heading-name">{ person.name() ? person.name() : 'Nameless Person' }</span>!</h1>
+        <h1>Hello, <span id="heading-name">{ person.name() ? person.name() : `${user.split('.')[0]}` }</span>!</h1>
+        <Container signedIn={signedIn} />
+
         <p className="lead">
           <button
             className="btn btn-primary btn-lg"
@@ -41,6 +49,7 @@ export default class Profile extends Component {
           >
             Logout
           </button>
+
         </p>
       </div> : null
     );

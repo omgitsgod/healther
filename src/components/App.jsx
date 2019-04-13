@@ -1,6 +1,7 @@
 import React, { Component, Link } from 'react';
 import Profile from './Profile.jsx';
 import Signin from './Signin.jsx';
+import Container from '../containers/Container.jsx'
 import {
   isSignInPending,
   isUserSignedIn,
@@ -26,15 +27,17 @@ export default class App extends Component {
   }
 
   render() {
+
     return (
-      <div className="site-wrapper">
+      <header className="site-wrapper">
         <div className="site-wrapper-inner">
           { !isUserSignedIn() ?
             <Signin handleSignIn={ this.handleSignIn } />
-            : <Profile handleSignOut={ this.handleSignOut } />
+            : <Profile handleSignOut={this.handleSignOut} signedIn={isUserSignedIn()}/>
           }
+          { !isUserSignedIn() ? <Container  /> : null }
         </div>
-      </div>
+      </header>
     );
   }
 

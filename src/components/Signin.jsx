@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { isUserSignedIn } from 'blockstack';
-
 export default class Signin extends Component {
   constructor(props) {
     super(props);
@@ -11,16 +10,17 @@ export default class Signin extends Component {
 
     return (
       <div className="panel-landing" id="section-1">
-        <h1 className="landing-heading">Hello, Blockstack!</h1>
+        <h1 className="landing-heading">Healther</h1>
         <p className="lead">
           <button
             className="btn btn-primary btn-lg"
             id="signin-button"
             onClick={ handleSignIn.bind(this) }
           >
-            Sign In with Blockstack
+            Sign In
           </button>
         </p>
+
       </div>
     );
   }
