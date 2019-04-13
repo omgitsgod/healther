@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import dummy from '../assets/dummy-data.json'
 import {
   isSignInPending,
   loadUserData,
   Person,
+  putFile,
 } from 'blockstack';
 import Container from '../containers/Container.jsx'
 
@@ -31,6 +33,9 @@ export default class Profile extends Component {
 
 
     const user = loadUserData().username
+    const options = { encrypt: false }
+    putFile('results.json', JSON.stringify(dummy), options)
+    .then(console.log('Done!'))
     return (
       !isSignInPending() ?
       <div className="panel-welcome" id="section-2">

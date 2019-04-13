@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { getFile } from 'blockstack'
 
 export default class Request extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      results: [],
+      page: "form",
       FullName: "",
       DOB: "",
       Phone: "",
@@ -25,8 +28,19 @@ export default class Request extends Component {
 
   submitHandler(e) {
     e.preventDefault();
+    this.setState({page: "results"})
+    const options = { decrypt: false }
+    getFile('results.json', options)
+    .then((file) => {
+      var results = JSON.parse(file || '[]')
+      var tiny = results.filter(x => x.Patient === this.state.FullName)
+      this.setState({results : tiny})
+      console.log(tiny);
+
+    })
   }
   render() {
+    if(this.state.page === "form") {
     return (
       <form className="search-form" onSubmit={e => this.submitHandler(e)}>
         <label>Full Name</label>
@@ -121,5 +135,10 @@ export default class Request extends Component {
         <button className='submit btn-primary'>Submit</button>
       </form>
     );
+  } else {
+    return (
+      <p>hi</p>
+    )
+  }
   }
 }
