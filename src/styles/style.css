@@ -142,3 +142,19 @@ input,textarea{color:#000;}
 .submit {
   margin-top: 10px;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card {
+
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  color: #2C96FF;
+  border: 1px black;
+
+}

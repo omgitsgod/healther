@@ -15,10 +15,11 @@ export default class Request extends Component {
       City: "",
       State: "",
       Zip: "",
-      Type: "---"
+      Type: ""
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.showResults = this.showResults.bind(this);
   }
   changeHandler(e) {
     this.setState({
@@ -30,19 +31,35 @@ export default class Request extends Component {
     e.preventDefault();
     this.setState({page: "results"})
     const options = { decrypt: false }
+
     getFile('results.json', options)
     .then((file) => {
       var results = JSON.parse(file || '[]')
       var tiny = results.filter(x => x.Patient === this.state.FullName)
       this.setState({results : tiny})
       console.log(tiny);
-
+      i
     })
   }
+
+  componentDidMount() {
+
+  }
+
+  showResults() {
+    return this.state.results.map(x => {
+      console.log(x);
+    })
+  }
+
   render() {
-    if(this.state.page === "form") {
+    const x = this.state.results.map(x => {
+      return (<div className='card'><div className='card-body'> <p>{x.Patient}</p><p>{x.Type}</p></div> </div>)
+    })
     return (
-      <form className="search-form" onSubmit={e => this.submitHandler(e)}>
+      <div>
+      {this.state.page === "form" ?
+      (<form className="search-form" onSubmit={e => this.submitHandler(e)}>
         <label>Full Name</label>
         <input
           type="text"
@@ -134,11 +151,9 @@ export default class Request extends Component {
         </select>
         <button className='submit btn-primary'>Submit</button>
       </form>
-    );
-  } else {
-    return (
-      <p>hi</p>
+    ) : (this.state.results ? (x) : (null))
+}
+      </div>
     )
-  }
-  }
+}
 }

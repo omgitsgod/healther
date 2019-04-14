@@ -14,7 +14,7 @@ export default class Container extends Component {
     console.log(this.state)
     const { signedIn } = this.state
     return (
-      <main className='Container'>
+      <main className='container'>
         {signedIn ? <Request /> : <About /> }
       </main>
     )
